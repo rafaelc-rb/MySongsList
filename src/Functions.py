@@ -10,27 +10,28 @@ def exit():
 
 def title():
     title = input("\nDigite o titulo: ")
-    return titleSearch(title)
-
-def titleSearch(title):
-    df2=df[df["Title"] == title]    
+    df2=df[df["Title"] == title] 
     return df2
 
 def artist():
     artist = input("\nDigite o nome do artista: ")
-    return artistSearch(artist)
-
-def artistSearch(artist):
-    df2=df[df["Artist"] == artist]    
+    df2=df[df["Artist"] == artist] 
     return df2
 
 def genre():
     genre = input("\nDigite o gênero da música: ")
-    return genreSearch(genre) 
-
-def genreSearch(genre):
-    df2=df[df["Genre"] == genre]    
+    df2=df[df["Genre"] == genre]  
     return df2
 
 def listAll():
-    return df
+    return pd.read_csv('SongsList.csv')
+
+def register():
+    title = input("\nDigite o título da música: ")
+    artist = input("Digite o artista da música: ")
+    album = input("Digite o album da música: ")
+    release = input("Digite o ano da música: ")
+    genre = input("Digite o gênero da música: ")
+    newsong = df.append({'Title':title,'Artist':artist,'Album':album,'Release':release,'Genre':genre}, ignore_index=True)
+    newsong.to_csv('SongsList.csv', index=False)
+    return "\nMúsica cadastrada com sucesso!"

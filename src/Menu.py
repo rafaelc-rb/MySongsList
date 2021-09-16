@@ -14,6 +14,7 @@ while choice != 0 :
     2. Buscar por Artista
     3. Buscar por Gênero
     4. Listar todas as músicas
+    5. Registrar nova música
     0. Sair
     ''')
 
@@ -23,9 +24,9 @@ while choice != 0 :
         2: artist,
         3: genre,
         4: listAll,
+        5: register,
         0: exit
     }
 
     output = op.get(choice, err)()
     print(output)
-
